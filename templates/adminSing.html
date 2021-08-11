@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Admin</h3>
+				{% for message in get_flashed_messages() %}
+                  <div class="alert alert-danger" role="alert">Error: {{ message }}</div>
+                 {% endfor %}
+				
+			</div>
+			<div class="card-body">
+				<form action="{{ url_for('admin') }}" method = "POST" enctype = "multipart/form-data" >
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" name="username" placeholder="username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" name="password" placeholder="password">
+					</div>
+					
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!---
+<script>
+
+    var str = window.location.href;
+
+    var params={};
+
+    window.location.search
+
+    .replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
+
+      params[key] = value;
+
+    });
+
+    window.CCHAT_CONFIG = {
+
+      EMBED_TOKEN: typeof(params.token) !== "undefined" && params.token !== null ? params.token : "f0a3dc1f865a4b349a11b78282c2ab0f",
+
+      HOST_URL: "http://18.116.204.111/"
+
+    };
+
+    (function() {
+
+      window.business_name = 'Welcome to DentalChat!';
+
+      window.business_ID = '153';
+
+      window.widgetTimeout = 1;
+      window.NAME = "DentalChat"
+
+
+      var scriptTag = document.createElement('script');
+
+      scriptTag.type = 'text/javascript';
+
+      scriptTag.async = true;
+
+      scriptTag.src = window.CCHAT_CONFIG.HOST_URL + 'loader.js?t='+Math.random();
+
+      var s = document.getElementsByTagName('script')[0];
+
+      s.parentNode.insertBefore(scriptTag, s);
+
+    })();
+
+  </script>-->
+</body>
+</html>

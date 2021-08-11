@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Live Streaming Demonstration</title>
+</head>
+<body>
+  
+
+
+
+<form action="{{ url_for('result') }}" method = "POST" enctype = "multipart/form-data" style="margin-left:500px;">
+   <div class="form-row">
+   <h1>REGISTER IDENTITY</h1>
+   </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+     <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+    </div>
+    </div>
+   <div class="form-row">
+   
+    <div class="form-group col-md-6">
+    <label for="exampleInputEmail1">Upload Picture 	&nbsp;	&nbsp; <span style="color:red;font-weight:50px;">*only .jpg or .jpeg</span></label>
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text">Upload</span>
+     </div>
+     <div class="custom-file">
+     
+      <input type="file" accept=" image/jpeg" onchange="loadFile(event)" name="file"  class="custom-file-input" id="inputGroupFile01">
+      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div>
+  
+    </div>
+      <div class="form-row">
+        <img id="output" width="150" height="150" src="{{url_for('static', filename='user.png')}}" style="border-radius:5%;" />	
+      </div>
+    <div class="form-row">
+  <button type="submit" class="btn btn-primary" style="margin-top:15px;">Register</button>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+<script>
+var image = document.getElementById('output');
+
+var loadFile = function(event) {
+    
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+</body>
+</html>
